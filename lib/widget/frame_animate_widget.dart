@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wan_android/utils/log_utils.dart';
 
 ////逐帧动画展示Widget
 class FrameAnimateWidget extends StatefulWidget {
@@ -30,7 +29,7 @@ class FrameAnimateState extends State<FrameAnimateWidget> {
     _disposed = false;
     _duration = const Duration(milliseconds: 50);
     _imageIndex = 0;
-    _container = Container(height: widget.height, width: widget.width);
+    _container = Container(height: widget.height, width: widget.width,color: widget.backColor);
     _updateImage();
   }
 
@@ -59,7 +58,7 @@ class FrameAnimateState extends State<FrameAnimateWidget> {
   void dispose() {
     super.dispose();
     _disposed = true;
-    widget.imageCaches.clear();
+    // widget.imageCaches.clear();
   }
 
   @override
