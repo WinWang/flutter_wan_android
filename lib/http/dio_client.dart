@@ -24,8 +24,8 @@ class DioClient {
   }
 
   ///超时时间
-  static const int CONNECT_TIMEOUT = 30000;
-  static const int RECEIVE_TIMEOUT = 30000;
+  static const int CONNECT_TIMEOUT = 15000;
+  static const int RECEIVE_TIMEOUT = 15000;
 
   static final DioClient _instance = DioClient._internal();
 

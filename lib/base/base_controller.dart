@@ -23,7 +23,7 @@ abstract class BaseController<M> extends SuperController
   void loadNet();
 
   /// 发起网络请求，同时处理异常，loading
-  sendRequest<T>(Future<T> future, FutureOr<dynamic> Function(T value) onValue,
+  httpRequest<T>(Future<T> future, FutureOr<dynamic> Function(T value) onValue,
       {Function(Exception e)? error,
       bool showLoading = true,
       bool handleError = true}) {

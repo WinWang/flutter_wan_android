@@ -32,6 +32,8 @@ class Styles {
       TextStyle(color: ColorStyle.color_6A6969, fontSize: 14.sp);
   static TextStyle style_6A6969_16 =
       TextStyle(color: ColorStyle.color_6A6969, fontSize: 16.sp);
+  static TextStyle style_6A6969_28 =
+  TextStyle(color: ColorStyle.color_6A6969, fontSize: 28.sp);
 
   ///---------------------------白色字体区域-------------------------------
   static TextStyle style_white_10 =
@@ -60,6 +62,10 @@ class Styles {
       color: Colors.black, fontSize: 18.sp, fontWeight: FontWeight.w700);
   static TextStyle style_black_18_bold500 = TextStyle(
       color: Colors.black, fontSize: 18.sp, fontWeight: FontWeight.w500);
+  static TextStyle style_black_24_bold500 = TextStyle(
+      color: Colors.black, fontSize: 24.sp, fontWeight: FontWeight.w500);
+  static TextStyle style_black_30_bold500 = TextStyle(
+      color: Colors.black, fontSize: 30.sp, fontWeight: FontWeight.w500);
   static TextStyle style_black_16_bold = TextStyle(
       color: Colors.black, fontSize: 16.sp, fontWeight: FontWeight.w700);
   static TextStyle style_black_16_bold500 = TextStyle(
@@ -68,6 +74,10 @@ class Styles {
       TextStyle(color: Colors.black, fontSize: 14.sp);
   static TextStyle style_black_16 =
       TextStyle(color: Colors.black, fontSize: 16.sp);
+  static TextStyle style_black_24 =
+      TextStyle(color: Colors.black, fontSize: 24.sp);
+  static TextStyle style_black_32 =
+      TextStyle(color: Colors.black, fontSize: 32.sp);
   static TextStyle style_black_36 =
       TextStyle(color: Colors.black, fontSize: 36.sp);
   static TextStyle style_black_30 =

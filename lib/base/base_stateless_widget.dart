@@ -35,10 +35,10 @@ abstract class BaseStatelessWidget<T extends BaseController> extends GetView<T>
 
   String titleString() => "标题";
 
-  ////showSuccess展示成功的布局
+  ///showSuccess展示成功的布局
   Widget buildContent(BuildContext context);
 
-  ////空布局
+  ///空布局
   Widget _createEmptyWidget() {
     return Material(
       child: Center(
@@ -74,7 +74,7 @@ abstract class BaseStatelessWidget<T extends BaseController> extends GetView<T>
     );
   }
 
-  ////创建AppBar
+  ///创建AppBar
   AppBar createAppBar() {
     return AppBar(
       title: Text(titleString()),
@@ -82,7 +82,7 @@ abstract class BaseStatelessWidget<T extends BaseController> extends GetView<T>
     );
   }
 
-  ////异常布局
+  ///异常布局
   Widget _createErroWidget(String? error) {
     return Material(
         child: Center(

@@ -6,9 +6,10 @@ import 'package:flutter_wan_android/business/page/main/main_binding.dart';
 import 'package:flutter_wan_android/business/page/main/main_page.dart';
 import 'package:flutter_wan_android/business/page/test/test_binding.dart';
 import 'package:flutter_wan_android/business/page/test/test_page.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:flutter_wan_android/route/router_auth_middleware.dart';
+import 'package:get/get.dart';
 
-abstract class Routes {
+abstract class AppRoutes {
   static const ARTICLE_PAGE = "/live_page";
   static const HOME_PAGE = "/home_page";
   static const MAIN_PAGE = "/main_page";
@@ -21,6 +22,8 @@ abstract class Routes {
     GetPage(
         name: HOME_DETAIL_PAGE,
         page: () => HomeDetailPage(),
-        binding: HomeDetailBindng())
+        binding: HomeDetailBindng(),
+        transition: Transition.rightToLeft,
+        middlewares: [RouteAuthMiddleware(priority: 1)]),
   ];
 }

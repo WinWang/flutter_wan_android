@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_wan_android/res/style.dart';
 
-/// @class : LoadingDialog
-/// @date : 2021/08/18
-/// @name : jhf
 /// @description :公共加载弹窗
 class LoadingDialog extends StatefulWidget {
   String text = '';
