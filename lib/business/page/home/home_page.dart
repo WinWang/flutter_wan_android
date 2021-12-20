@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/base/base_controller.dart';
 import 'package:flutter_wan_android/base/base_stateless_widget.dart';
 import 'package:flutter_wan_android/business/page/home/model/banner_entity.dart';
+import 'package:flutter_wan_android/business/page/home/model/hot_data.dart';
 import 'package:flutter_wan_android/event/event_controller.dart';
-import 'package:flutter_wan_android/ext/get_extension.dart';
 import 'package:flutter_wan_android/http/apiservice/test_api.dart';
+import 'package:flutter_wan_android/http/base_wan_result.dart';
 import 'package:flutter_wan_android/route/routes.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +20,7 @@ class HomePage extends BaseStatelessWidget<HomeController> {
           child: Column(
             children: [
               Text(controller.homeText.value),
+              Text(controller.hotKeyData.value),
               Text(GetInstance()
                   .find<EventController>()
                   .number
@@ -38,6 +40,7 @@ class HomePage extends BaseStatelessWidget<HomeController> {
 
 class HomeController extends BaseController<TestApi> {
   RxString homeText = "".obs;
+  RxString hotKeyData = "".obs;
 
   String? dataString = "null";
 
@@ -59,8 +62,16 @@ class HomeController extends BaseController<TestApi> {
     }, error: (e) {}, showLoading: true);
   }
 
+  void getHotKeyData() {
+    sendRequest<BaseWanResult<List<HotData>>>(api.getHotData(), (value) {
+      hotKeyData.value = value.data?.toString() ?? "123123123";
+      showSuccess();
+    }, error: (e) {}, showLoading: false);
+  }
+
   @override
   void loadNet() {
     getBannerData();
+    getHotKeyData();
   }
 }

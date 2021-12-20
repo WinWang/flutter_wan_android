@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_wan_android/ext/get_extension.dart';
 import 'package:flutter_wan_android/http/app_except.dart';
+import 'package:flutter_wan_android/http/base_wan_result.dart';
 import 'package:flutter_wan_android/mixin/dialog/dialog_mixin.dart';
 import 'package:flutter_wan_android/mixin/toast/toast_mixin.dart';
 import 'package:flutter_wan_android/utils/log_utils.dart';
 import 'package:get/get.dart';
 
+///具有状态控制和网络请求能力的controller，等价MVVM中的ViewModel
 abstract class BaseController<M> extends SuperController
     with ToastMixin, DialogMixin {
   late M api;
@@ -29,7 +31,21 @@ abstract class BaseController<M> extends SuperController
       Get.showLoading();
     }
     future.then((t) {
-      onValue(t);
+      ///添加结果码判断（同时考虑加入List的判断逻辑）
+      if (t is BaseWanResult) {
+        if (t.errorCode == 0) {
+          onValue(t);
+        } else {
+          if (handleError) {
+            showToast(t.errorMsg);
+            showError(errorMessage: t.errorMsg);
+          } else {
+            onValue(t);
+          }
+        }
+      } else {
+        onValue(t);
+      }
     }).catchError((e) {
       if (handleError) {
         showError(e: e);

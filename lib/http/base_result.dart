@@ -1,28 +1,33 @@
-// import 'package:json_annotation/json_annotation.dart';
-// /**
-//  * 大阳智投数据基类
-//  */
-// part 'base_result.g.dart';
-// @JsonSerializable()
-// class BaseResult<T> {
-//   int? resCode;
-//   String? resMessage;
-//   T? resObject;
-//
-//   BaseResult({this.resCode, this.resMessage, this.resObject});
-//
-//   factory BaseResult<T>.fromJson(Map<String, dynamic> json) => _$BaseResult<T>FromJson(json);
-//
-//   Map<String, dynamic> toJson() => _$BaseResult<T>ToJson(this);
-// }
-//
-// /**
-//  * 测试数据类积累
-//  */
-// class BaseWanResult<T> {
-//   int? errorCode;
-//   String? errorMsg;
-//   T? data;
-//
-//
-// }
+import 'package:json_annotation/json_annotation.dart';
+
+/**
+ * 大阳智投数据基类
+ */
+
+part 'base_result.g.dart';
+
+@JsonSerializable(genericArgumentFactories: true)
+class BaseResult<T> {
+  @JsonKey(name: "resCode")
+  int? resCode;
+  @JsonKey(name: "resMessage")
+  String? resMessage;
+  @JsonKey(name: "resObject")
+  T? resObject;
+
+  BaseResult({this.resCode, this.resMessage, this.resObject});
+
+  factory BaseResult.fromJson(
+      Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+      _$BaseResultFromJson(json, fromJsonT);
+
+
+  Map<String, dynamic> toJson(Object Function(T value) toJsonT) =>
+      _$BaseResultToJson(this, toJsonT);
+
+}
+
+
+
+
+
