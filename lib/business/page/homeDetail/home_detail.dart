@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wan_android/base/base_controller.dart';
-import 'package:flutter_wan_android/base/base_stateless_widget.dart';
+import 'package:flutter_wan_android/base/controller/base_controller.dart';
+import 'package:flutter_wan_android/base/pageWidget/base_stateless_widget.dart';
 import 'package:flutter_wan_android/event/event_controller.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/get_instance.dart';

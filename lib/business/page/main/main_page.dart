@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wan_android/base/base_stateless_widget.dart';
-import 'package:flutter_wan_android/base/base_controller.dart';
+import 'package:flutter_wan_android/base/pageWidget/base_stateless_widget.dart';
+import 'package:flutter_wan_android/base/controller/base_controller.dart';
 import 'package:flutter_wan_android/business/page/home/home_page.dart';
 import 'package:flutter_wan_android/business/page/live/live_page.dart';
 import 'package:get/get.dart';
@@ -65,7 +65,7 @@ class MainController extends BaseController {
 
   @override
   void loadNet() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       showSuccess();
     });
   }

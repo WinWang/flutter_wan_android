@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_wan_android/base/base_controller.dart';
+import 'package:flutter_wan_android/base/controller/base_controller.dart';
 import 'package:flutter_wan_android/mixin/toast/toast_mixin.dart';
 import 'package:flutter_wan_android/res/colors.dart';
 import 'package:flutter_wan_android/res/style.dart';

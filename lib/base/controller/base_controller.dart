@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_wan_android/ext/get_extension.dart';
 import 'package:flutter_wan_android/http/app_except.dart';
-import 'package:flutter_wan_android/http/base_wan_result.dart';
+import 'package:flutter_wan_android/http/result/base_wan_result.dart';
 import 'package:flutter_wan_android/mixin/dialog/dialog_mixin.dart';
 import 'package:flutter_wan_android/mixin/toast/toast_mixin.dart';
 import 'package:flutter_wan_android/utils/log_utils.dart';
@@ -25,8 +25,9 @@ abstract class BaseController<M> extends SuperController
   /// 发起网络请求，同时处理异常，loading
   httpRequest<T>(Future<T> future, FutureOr<dynamic> Function(T value) onValue,
       {Function(Exception e)? error,
-      bool showLoading = true,
-      bool handleError = true}) {
+      bool showLoading = false,
+      bool handleError = true,
+      bool handleSuccess = true}) {
     if (showLoading) {
       Get.showLoading();
     }
@@ -35,16 +36,25 @@ abstract class BaseController<M> extends SuperController
       if (t is BaseWanResult) {
         if (t.errorCode == 0) {
           onValue(t);
+          if(handleSuccess){
+            showSuccess();
+          }
         } else {
           if (handleError) {
             showToast(t.errorMsg);
             showError(errorMessage: t.errorMsg);
           } else {
             onValue(t);
+            if(handleSuccess){
+              showSuccess();
+            }
           }
         }
       } else {
         onValue(t);
+        if(handleSuccess){
+          showSuccess();
+        }
       }
     }).catchError((e) {
       if (handleError) {

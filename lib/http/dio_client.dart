@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_wan_android/constant/api_constant.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import 'error_interceptor.dart';
+import 'interceptor/error_interceptor.dart';
 
 ////Dio客户端
 class DioClient {

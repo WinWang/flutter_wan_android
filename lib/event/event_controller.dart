@@ -1,4 +1,4 @@
-import 'package:flutter_wan_android/base/base_controller.dart';
+import 'package:flutter_wan_android/base/controller/base_controller.dart';
 import 'package:get/get.dart';
 
 ////负责全局eventBus的controller，实验getx的全局controller通信功能

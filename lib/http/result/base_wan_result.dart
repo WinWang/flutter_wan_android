@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 /**
- * 大阳智投数据基类
+ * wanAndroid数据基类
  */
 part 'base_wan_result.g.dart';
 

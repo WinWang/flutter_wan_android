@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_wan_android/utils/log_utils.dart';
 
-import 'app_except.dart';
+import '../app_except.dart';
 
 ////错误处理拦截器
 class ErrorInterceptor extends Interceptor {

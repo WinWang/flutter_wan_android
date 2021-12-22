@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wan_android/base/base_controller.dart';
-import 'package:flutter_wan_android/base/base_stateless_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_wan_android/base/controller/base_controller.dart';
+import 'package:flutter_wan_android/base/pageWidget/base_stateless_widget.dart';
 import 'package:flutter_wan_android/business/page/home/model/banner_entity.dart';
 import 'package:flutter_wan_android/business/page/home/model/hot_data.dart';
 import 'package:flutter_wan_android/event/event_controller.dart';
 import 'package:flutter_wan_android/ext/get_extension.dart';
 import 'package:flutter_wan_android/http/apiservice/test_api.dart';
-import 'package:flutter_wan_android/http/base_wan_result.dart';
+import 'package:flutter_wan_android/http/result/base_wan_result.dart';
 import 'package:flutter_wan_android/route/routes.dart';
 import 'package:flutter_wan_android/utils/log_utils.dart';
 import 'package:flutter_wan_android/utils/preference_utils.dart';
@@ -22,7 +23,10 @@ class HomePage extends BaseStatelessWidget<HomeController> {
           height: double.infinity,
           child: Column(
             children: [
-              Text(controller.homeText.value),
+              Text(
+                controller.homeText.value,
+                style: TextStyle(fontSize: 20.sp),
+              ),
               Text(controller.hotKeyData.value),
               Text(GetInstance()
                   .find<EventController>()
@@ -43,7 +47,10 @@ class HomePage extends BaseStatelessWidget<HomeController> {
                         Get.showCommonDialog(
                             title: "提示", content: "我在测试我的标题的输出")
                       },
-                  child: const Text("弹窗展示"))
+                  child: const Text("弹窗展示")),
+              ElevatedButton(
+                  onPressed: () => {Get.toNamed(AppRoutes.LIST_PAGE)},
+                  child: const Text("跳转列表页面"))
             ],
           ),
         ));
