@@ -4,14 +4,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter_wan_android/ext/get_extension.dart';
 import 'package:flutter_wan_android/http/app_except.dart';
 import 'package:flutter_wan_android/http/result/base_wan_result.dart';
-import 'package:flutter_wan_android/mixin/dialog/dialog_mixin.dart';
 import 'package:flutter_wan_android/mixin/toast/toast_mixin.dart';
 import 'package:flutter_wan_android/utils/log_utils.dart';
 import 'package:get/get.dart';
 
 ///具有状态控制和网络请求能力的controller，等价MVVM中的ViewModel
 abstract class BaseController<M> extends SuperController
-    with ToastMixin, DialogMixin {
+    with ToastMixin {
   late M api;
 
   @override
