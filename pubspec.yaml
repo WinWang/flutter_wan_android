@@ -32,7 +32,7 @@ dependencies:
 
 
   # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # Use with the CupertinoIcons class for iOS style icons.测试版本号修改
   cupertino_icons: ^1.0.2
   # rxdart https://pub.flutter-io.cn/packages/rxdart
   rxdart: ^0.27.1
